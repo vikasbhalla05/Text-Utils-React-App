@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Navbar, Nav, Button, Dropdown, Form, Collapse } from 'bootstrap-4-react';
 
-export default class App extends Component {
-  render() {
+export default function NavBar(props){
     return (
       <Navbar expand="lg" light bg="light">
         <Navbar.Brand href="#">
-          TextUtils
+          {props.title}
         </Navbar.Brand>
         <Navbar.Toggler target="#navbarSupportedContent" />
         <Collapse navbar id="navbarSupportedContent">
@@ -15,7 +15,7 @@ export default class App extends Component {
               <Nav.Link href="#">Home</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#">Link</Nav.Link>
+              <Nav.Link href="#">{props.aboutText}</Nav.Link>
             </Nav.Item>
           </Navbar.Nav>
           <Form inline my="2 lg-0">
@@ -25,5 +25,14 @@ export default class App extends Component {
         </Collapse>
       </Navbar>
     )
-  }
+}
+
+NavBar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string.isRequired
+}
+
+NavBar.defaultProps = {
+  title: "Add title here",
+  aboutText: 'add about here'
 }
