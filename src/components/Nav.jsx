@@ -4,7 +4,7 @@ import { Navbar, Nav, Button, Dropdown, Form, Collapse } from 'bootstrap-4-react
 
 export default function NavBar(props){
     return (
-      <Navbar expand="lg" light bg="light">
+      <Navbar expand="lg" dark bg="dark">
         <Navbar.Brand href="#">
           {props.title}
         </Navbar.Brand>
@@ -20,7 +20,7 @@ export default function NavBar(props){
           </Navbar.Nav>
           <Form inline my="2 lg-0">
             <Form.Input type="search" placeholder="Search" mr="sm-2" />
-            <Button outline success my="2 sm-0">Search</Button>
+            <Button outline primary my="2 sm-0">Search</Button>
           </Form>
         </Collapse>
       </Navbar>
