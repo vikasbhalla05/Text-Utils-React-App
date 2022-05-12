@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function TextForm(props) {
 
@@ -13,6 +14,9 @@ export default function TextForm(props) {
     const handleChange =(e) => {
         setText(e.target.value);
     }
+    let handleReset = (e) => {
+      setText(" ");
+    }
 
   return (
     <>
@@ -24,6 +28,8 @@ export default function TextForm(props) {
             <textarea className="form-control" value={text} onChange={handleChange} id="textArea" rows="8"></textarea>
             <button className="btn btn-primary m-2" onClick={handleUpClick} type="button" >UpperCase</button>
             <button className="btn btn-primary m-2" onClick={handleLowClick} type="button" >LowerCase</button>
+            <button className="btn btn-light m-2" onClick={handleReset} type="button" > Reset</button>
+            <DeleteForeverIcon />
         </form>
 
         <div className="container my-3">
