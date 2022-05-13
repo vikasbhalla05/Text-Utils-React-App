@@ -7,15 +7,24 @@ export default function TextForm(props) {
 
     const handleUpClick = () => {
         setText(text.toUpperCase());
+        text.split(" ").length <=1 
+        ?  props.showAlert("Write Some more text","warning")
+        :  props.showAlert("Capitalized text","success");
     }
     const handleLowClick = () => {
       setText(text.toLowerCase());
+      text.split(" ").length <=1 
+        ?  props.showAlert("Write Some more text","warning")
+        :  props.showAlert("Made the text small text","success");
     }
     const handleChange =(e) => {
         setText(e.target.value);
     }
     let handleReset = (e) => {
-      setText(" ");
+      
+      text.split(" ").length <=1 
+        ?  props.showAlert("Write Some more text","warning")
+        :  setText(" ") && props.showAlert("Removed the text","success");
     }
 
   return (
