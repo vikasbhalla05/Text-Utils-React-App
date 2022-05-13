@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+// import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 export default function TextForm(props) {
 
@@ -20,24 +20,27 @@ export default function TextForm(props) {
 
   return (
     <>
-        <div className="container my-3">
+        <div className="container my-3" style={{color: props.mode==="dark" ? "white" : "black"}}>
           <h1>{props.heading}</h1>
         </div>
       
-        <form class="my-5">
-            <textarea className="form-control" value={text} onChange={handleChange} id="textArea" rows="8"></textarea>
-            <button className="btn btn-primary m-2" onClick={handleUpClick} type="button" >UpperCase</button>
-            <button className="btn btn-primary m-2" onClick={handleLowClick} type="button" >LowerCase</button>
-            <button className="btn btn-light m-2" onClick={handleReset} type="button" > Reset</button>
-            <DeleteForeverIcon />
+        <form className="my-5">
+            <textarea className="form-control" value={text} onChange={handleChange} id="textArea" rows="8" 
+            style={{backgroundColor: props.mode==="dark" ? "#dedede" : "white"}}></textarea>
+            <button className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleUpClick} type="button" >UpperCase</button>
+            <button className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleLowClick} type="button" >LowerCase</button>
+            <button className={`btn btn-${props.mode==="light"? "alert" : "light"} m-2`} onClick={handleReset} type="button" > Reset</button>
+            {/* <DeleteForeverIcon /> */}
         </form>
 
-        <div className="container my-3">
+        <div className="container my-3 " style={{color: props.mode==="dark" ? "white" : "black"}}>
+        <hr className='divider'/>
           <h2>Analysis</h2>
           <p>Text Contains {text.split(" ").length} words & {text.length} characters.</p>
           <p>{ 0.008*text.split(" ").length }min Read Time.</p>
+          <hr className='divider'/>
           <h2>Preview</h2>
-          <p>{text}</p>
+          <p>{text.length>0 ? text : "Type in the text box to preview"}</p>
         </div>
     </>
   )
