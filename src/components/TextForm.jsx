@@ -33,7 +33,7 @@ export default function TextForm(props) {
           <h1>{props.heading}</h1>
         </div>
       
-        <form className="my-5">
+        <form className="my-5 container">
             <textarea className="form-control" value={text} onChange={handleChange} id="textArea" rows="8" 
             style={{backgroundColor: props.mode==="dark" ? "#dedede" : "white"}}></textarea>
             <button className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleUpClick} type="button" >UpperCase</button>

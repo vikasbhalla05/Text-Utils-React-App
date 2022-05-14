@@ -3,6 +3,13 @@ import Nav from './components/Nav.jsx';
 import TextForm from './components/TextForm';
 import React, {useState} from 'react';
 import Alert from './components/Alert';
+import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+// import your route components too
 
 function App() {
   let [mode, switchDark] = useState("light");
@@ -35,10 +42,20 @@ function App() {
 
   return (
     <>
+    
+
+    {/* <Nav title="TextUtils" aboutText="About TextUtils" mode={mode} turnDark={enableDarkMode}/> */}
+    {/* <Alert alert={alert}/> */}
+    <div className="container-fluid">
+    <Router>
     <Nav title="TextUtils" aboutText="About TextUtils" mode={mode} turnDark={enableDarkMode}/>
     <Alert alert={alert}/>
-    <div className="container">
-      <TextForm heading={"Write the Text to Analyze:"}  mode={mode} showAlert={showAlert}/>
+        <Routes>
+          <Route path="/" element={<TextForm heading={"Write the Text to Analyze:"}  mode={mode} showAlert={showAlert}/>} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
+      {/* <TextForm heading={"Write the Text to Analyze:"}  mode={mode} showAlert={showAlert}/> */}
     </div>
     </>
   );
