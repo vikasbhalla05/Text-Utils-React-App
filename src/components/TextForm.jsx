@@ -36,20 +36,20 @@ export default function TextForm(props) {
         <form className="my-5 container">
             <textarea className="form-control" value={text} onChange={handleChange} id="textArea" rows="8" 
             style={{backgroundColor: props.mode==="dark" ? "#dedede" : "white"}}></textarea>
-            <button className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleUpClick} type="button" >UpperCase</button>
-            <button className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleLowClick} type="button" >LowerCase</button>
-            <button className={`btn btn-${props.mode==="light"? "alert" : "light"} m-2`} onClick={handleReset} type="button" > Reset</button>
+            <button disabled={text.length ? false : true} className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleUpClick} type="button" >UpperCase</button>
+            <button disabled={text.length ? false : true} className={`btn btn-${props.mode==="light"? "primary" : "dark"} m-2`} onClick={handleLowClick} type="button" >LowerCase</button>
+            <button disabled={text.length ? false : true} className={`btn btn-${props.mode==="light"? "alert" : "light"} m-2`} onClick={handleReset} type="button" > Reset</button>
             {/* <DeleteForeverIcon /> */}
         </form>
 
         <div className="container my-3 " style={{color: props.mode==="dark" ? "white" : "black"}}>
         <hr className='divider'/>
           <h2>Analysis</h2>
-          <p>Text Contains {text.split(" ").length} words & {text.length} characters.</p>
-          <p>{ 0.008*text.split(" ").length }min Read Time.</p>
+          <p>Text Contains {text.split(" ").filter(word => word.length).length} words & {text.length} characters.</p>
+          <p>{ 0.008*text.split(" ").filter(word => word.length).length }min Read Time.</p>
           <hr className='divider'/>
           <h2>Preview</h2>
-          <p>{text.length>0 ? text : "Type in the text box to preview"}</p>
+          <p>{text.length>0 ? text : "Nothing to preview"}</p>
         </div>
     </>
   )

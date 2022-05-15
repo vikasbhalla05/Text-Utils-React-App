@@ -46,7 +46,7 @@ function App() {
 
     {/* <Nav title="TextUtils" aboutText="About TextUtils" mode={mode} turnDark={enableDarkMode}/> */}
     {/* <Alert alert={alert}/> */}
-    <div className="container-fluid">
+    <div >
     <Router>
     <Nav title="TextUtils" aboutText="About TextUtils" mode={mode} turnDark={enableDarkMode}/>
     <Alert alert={alert}/>
